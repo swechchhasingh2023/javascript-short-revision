@@ -1,0 +1,322 @@
+A:
+Introduction about JS- what is js? why it is used? 
+console.log()
+DOM API - alert, confirm, prompt
+Variable - let, const, var & theirs rules, scope - block, global
+most common programming case Type - camelCase, kabab-case, snake_case, PascalCase
+Template literals - ${fname}
+ 
+B:
+Data types - primitive (string, number, null, boolean, undefined) & non primitive (Array, Object) - Plz don't go in deep we will talk about its method later like array has shift, unshift, pop, push methods...
+Coersion
+difference between == & ===
+i++ & ++i
+
+
+
+Introduction about JS- what is js? why it is used? 
+Used for content manipulation, used for convert our website dynamic 
+
+Js is cross platform, OOPS support lang used to convert our static pages into dynamic.
+
+//
+JavaScript (JS) is a programming language used to make web pages interactive. It runs in web browsers and is one of the core technologies of the web, along with HTML and CSS.
+//
+Why is JavaScript Used?
+Dynamic Web Pages: Enables animations, content updates, and interactive elements.
+Front-End Development: Powers frameworks like React and Angular for building user interfaces.
+Back-End Development: Used with Node.js to create server-side applications.
+Cross-Platform Apps: Builds mobile, desktop, and web apps with tools like React Native and Electron.
+Real-Time Apps: Perfect for chat, streaming, and live applications.
+
+ 
+console.log()
+Show output/ msg print
+
+//
+console.log() is a method in JavaScript used to output messages to the browser's console. It is commonly used for debugging and testing code by displaying variables, errors, or messages.
+ 
+DOM API - alert, confirm, prompt
+alert-  show alert msg
+confirm- shows the confirm box
+Prompt - get input from user
+
+1. alert()
+Purpose: Displays a simple message in a popup.
+Returns: Nothing (undefined).
+alert("Hello, World!");
+
+2. confirm()
+Purpose: Displays a message with "OK" and "Cancel" buttons.
+Returns:
+true if the user clicks "OK".
+false if the user clicks "Cancel".
+
+Example:
+let isSure = confirm("Are you sure?");
+console.log(isSure); // true (if OK), false (if Cancel)
+
+
+3. prompt()
+Purpose: Asks the user for input and returns the entered value as a string.
+Returns:
+The user's input as a string.
+null if the user clicks "Cancel".
+
+Syntax:
+prompt(message, defaultValue);
+message: The message displayed in the dialog.
+defaultValue: (Optional) The default input value.
+Example:
+let name = prompt("What is your name?", "Guest");
+console.log(name); // User input or "Guest" if no input is provided
+Output: A popup asking "What is your name?" with a text box for input.
+ 
+Variable - let, const, var & theirs rules, scope - block, global
+
+1. var
+Scope: Function-scoped (accessible throughout the function or globally if outside any function).
+Reassignable: Yes.
+Use Case: Older method, avoid using in modern code due to scoping issues.
+
+2. let
+Scope: Block-scoped (limited to {} where it's defined).
+Reassignable: Yes, value can be updated.
+Use Case: For variables that may change.
+
+3. const
+Scope: Block-scoped.
+Reassignable: No, cannot be updated or reassigned.
+Use Case: For variables that should remain constant.
+ 
+// rule 1 - var, let support update functinality, const not support
+ 
+// const a=10;
+// a=20;
+// console.log(a);
+ 
+// rule 2- var support double declaration, let & const not support
+// const b= 20;
+// const b=30;
+// console.log(b);
+ 
+// rule 3 - var & let support without initializer, const not support,
+// const c;
+// console.log(c);
+ 
+ 
+most common programming case Type - camelCase, kabab-case, snake_case, PascalCase
+
+camelCase: First word lowercase, subsequent words capitalized.
+Example: myVariableName
+
+kebab-case: All words lowercase, separated by hyphens.
+Example: my-variable-name
+
+snake_case: All words lowercase, separated by underscores.
+Example: my_variable_name
+
+PascalCase: All words capitalized, no spaces or separators.
+Example: MyVariableName
+
+let myName - suggested by most people
+let my-name
+let my_name
+let MyName
+ 
+// Scope
+// global, block
+
+Global Scope:
+Variables are accessible everywhere in the program.
+Declared outside functions or blocks.
+Example:
+let globalVar = "I am global";
+function show() {
+  console.log(globalVar); // Accessible
+}
+ 
+
+Block Scope:
+Variables are accessible only inside the block ({}) where they're defined.
+Applies to let and const.
+Example:
+{
+  let blockVar = "I am block-scoped";
+  console.log(blockVar); // Accessible
+}
+// console.log(blockVar); // Error: Not defined
+
+// var support global scope
+// const a=10;
+// {
+//     const b=20; // scope block
+//     console.log(b);
+//     console.log(a);
+// }
+// console.log(a);
+// console.log(b);
+ 
+// let & const support block scope
+ 
+const a=10;
+{
+    const a=20;
+    console.log(a);
+}
+console.log(a);
+Template literals - ${fname}
+ 
+let myFirstName="amey";
+let mySirName="Palshetkar";
+let companyName="eClerx";
+console.log(my name is ${myFirstName} ${mySirName} and i worked for ${companyName}.);
+
+
+
+// primitive and non-primitve
+
+Primitive Types:
+Definition: Immutable, basic data types.
+Types: string, number, boolean, null, undefined, bigint, symbol.
+Example:
+let x = 10; // number
+let name = "Alice"; // string
+Non-Primitive Types:
+Definition: Mutable, reference-based data structures.
+Types: object (includes arrays, functions, etc.).
+Example:
+let obj = { key: "value" }; // object
+let arr = [1, 2, 3]; // array
+
+Primitive Data Types in JavaScript:
+String: Represents text. Example: "Hello".
+Number: Represents numeric values. Example: 42.
+Boolean: Represents true/false. Example: true.
+Null: Represents an intentional absence of value. Example: null.
+Undefined: Represents an uninitialized variable. Example: undefined.
+BigInt: Represents large integers beyond Number limits. Example: 123n.
+Symbol: Represents unique identifiers. Example: Symbol('id').
+ 
+/*
+
+Number -  all types of number - int and float
+
+string - "hi my name is SS", 'hello '
+
+boolean - true/false
+
+null - 
+
+undefine
+
+symobls
+
+*/
+
+/*
+
+console.log('hello my name is S')
+ 
+// suraj's car is rolls royel
+ 
+console.log("suraj's car is rolls royel")
+ 
+const number = null;
+
+console.log(number)
+ 
+let a;
+
+console.log(a);
+ 
+const symbol = Symbol('description');
+
+console.log(symbol);
+ 
+const x= 5
+
+const y = "5"
+
+console.log(x==y) // it will first do coersion then compare only value
+
+console.log(x===y) // this will check value along with data type
+
+*/
+
+== (Double Equals)
+Compares: Values only (performs type coercion if types differ).
+Example:
+console.log(5 == "5"); // true (string "5" is coerced to number 5)
+console.log(null == undefined); // true
+=== (Triple Equals)
+Compares: Values and types (strict comparison, no type coercion).
+Example:
+console.log(5 === "5"); // false (different types: number vs string)
+console.log(null === undefined); // false
+ 
+/*
+
+
+++a (Pre-increment)
+Action: Increments the value of a before using it in an expression.
+Example:
+let a = 5;
+console.log(++a); // 6 (a is incremented first, then logged)
+a++ (Post-increment)
+Action: Uses the value of a before incrementing it.
+Example:
+let a = 5;
+console.log(a++); // 5 (a is logged first, then incremented)
+Key Difference:
+++a increments the value and then returns it.
+a++ returns the current value and then increments it.
+
+
+function myNaame(){
+
+    let a = 1
+
+    console.log(++a)
+
+    let b = 1
+
+     console.log(b++)
+
+}
+
+myNaame()
+
+*/
+ 
+// coersion -  it is data type conversion ex- number to sting or string to number
+
+
+Type Coercion in JavaScript
+Coercion refers to the automatic or implicit conversion of values from one data type to another. In JavaScript, coercion happens in two main forms:
+
+1. Implicit Coercion (Automatic):
+JavaScript automatically converts types when necessary, for example, during arithmetic or string operations.
+Example:
+let result = "5" + 1;  // Implicit coercion
+console.log(result);  // "51" (number 1 is coerced to a string)
+Here, JavaScript coerces the 1 to a string before concatenating it with "5".
+2. Explicit Coercion (Manual):
+You can manually convert types using methods like String(), Number(), Boolean(), etc.
+Example:
+let num = String(123);   // Explicit coercion to string
+let bool = Boolean(0);   // Explicit coercion to boolean
+console.log(num);   // "123"
+console.log(bool);  // false
+
+Coercion in Comparisons:
+Loose equality (==): JavaScript performs type coercion before comparing values.
+Example:
+console.log(5 == "5");  // true (string is coerced to number)
+console.log(false == 0);  // true (false is coerced to 0)
+Strict equality (===): No coercion occurs; the values and types must be the same.
+Example:
+console.log(5 === "5");  // false (different types)
+Coercion Rules:
+Strings and numbers can often be coerced into each other, but the behavior can be unpredictable in complex cases.
+Always use === (strict equality) to avoid unexpected results due to implicit coercion.
