@@ -1,0 +1,15 @@
+A:-
+array & their methods
+use of This keyword
+strict mode in js
+Hoisting
+Callbacks
+Object Accessors - get & set
+ 
+B:-
+String & ther methods
+destructure
+spread & rest operator
+call, apply, bind
+Closure
+Object Constructor
