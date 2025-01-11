@@ -7,9 +7,189 @@ Callbacks
 Object Accessors - get & set
  
 B:-
-String & ther methods
+String & their methods
 destructure
 spread & rest operator
 call, apply, bind
 Closure
 Object Constructor
+
+
+
+array & their methods
+Special type of variable which store more than value, similar type of value also store
+ 
+declaration of array
+const cars=["BMW","Porsche","Ferari", "Punch", "Thar", "Fortuner", "Nexon", "Nano"];
+// console.log(cars);
+ 
+Properties:-
+Access array element:-
+// index start from 0
+// console.log(cars[2]);
+ 
+Changing array element:-
+// cars[1]="Lamborgini";
+// console.log(cars);
+ 
+Convert array to string:-
+// toString - convert value into string
+// console.log(cars.toString());
+ 
+// Methods:-
+ 
+1. length
+// console.log(cars.length);
+ 
+2. Access any random element - alternative way but not used
+// let lastEle=cars[cars.length-1];
+// console.log(lastEle);
+ 
+3. Looping = iteration or listed element
+// 3.1 For loop
+// for(let i=0;i<cars.length;i++){
+//     console.log(cars[i]);
+// }
+ 
+3.2 forEach -
+// cars.forEach((car)=>{
+//     console.log(car);
+// });
+ 
+3.3 while -
+// let i=0;
+// while(i<cars.length){
+//     console.log(cars[i]);
+//     i++
+// }
+ 
+4 Adding elements in array:-
+4.1 - push() - added element in last position in array
+// cars.push("Desire");
+// console.log(cars);
+ 
+4.2 - unshift() - added element in first position in array
+// cars.unshift("Safari");
+// console.log(cars);
+// Note:- we need to pass value inside the brackets();
+ 
+5. Deleting element - no need to pass any value
+5.2 - pop() - removed element in last position from array
+//  cars.pop();
+// console.log(cars);
+ 
+5.2 - shift() - removed element in first position from array
+// cars.shift();
+// console.log(cars);
+ 
+6. at() -
+also used for access element
+// console.log(cars.at(1));
+ 
+7 . slice & Splice:-
+Slice:- array divide into piece of code
+// let miniArray = cars.slice(5); // we need to put index number
+// console.log(miniArray)
+ 
+Splice:- add or delete any particular position element from array
+ 
+// cars.splice(3,0,"Honda City");
+// cars.splice(3, 2);
+// console.log(cars);
+ 
+Merging two array:-
+concat() - merge two array elements
+ 
+// const letter=["a","b","c"];
+// const number = [1,2,3];
+// const newArray= letter.concat(number);
+// console.log(newArray)
+ 
+sort() - Ascending
+// console.log(cars.sort())
+ 
+reverse() - Descending
+// console.log(cars.reverse())
+ 
+ 
+use of This keyword
+ 
+mostly in js, this keywords refers to an object
+ 
+// const person={
+//     fName:"abc",
+//     lName:"xyz",
+//     fullName: function(){
+//         return this.fName+ " " +this.lName
+//     }
+// }
+// console.log(person.fullName());
+ 
+When you use this alone, then it refers to global object i.e window - same in "use strict"
+// console.log(this);
+ 
+this in function
+ 
+// "use strict"
+// function myFunc(){
+//     return this; // global object, if you use "use strict" mode then it gives the undefined
+// }
+// console.log(myFunc())
+ 
+ 
+strict mode in js
+- help to write clean and error free code
+previosly bad syntax convert it into errors
+ 
+// 1. undeclare variable
+// "use strict"
+// x=10;
+// console.log(x);
+ 
+// "use strict"
+// function myFunc(){
+//     return this; // global object, if you use "use strict" mode then it gives the undefined
+// }
+// console.log(myFunc())
+ 
+ 
+Hoisting
+
+x=1;
+var x;
+console.log(x);
+ 
+ 
+Callbacks
+- pass another function as a argument in given function
+ 
+// child func:-
+function greeting(name){
+     console.log("hello " +name);
+}
+ 
+// parent func -
+function anotherFunc(callback){
+    const name="amey";
+    callback(name); // => read as greeting(name)
+}
+ 
+// call function
+anotherFunc(greeting)
+ 
+Object Accessors - get & set
+Get method holds the value and set method used for updating the value.
+ 
+const person = {
+    fName:"Amey",
+    lName:"Palshetkar",
+    language:"EN",
+    get updateLang() {
+        return this.language;  
+    },
+    set updateLang(lang) {
+        this.language = lang;
+    }
+};
+person.updateLang="Mr";
+console.log(person.language);
