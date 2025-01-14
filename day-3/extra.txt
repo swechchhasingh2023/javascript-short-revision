@@ -193,3 +193,369 @@ const person = {
 };
 person.updateLang="Mr";
 console.log(person.language);
+
+
+
+// string : it is used to store or manipulate text.
+
+// there are three ways to create
+// 1. ""
+// 2. ''
+// 3. ``
+
+// let name = "Swechchha "
+// let name1 = 'Swechchha singh'
+// console.log(name)
+// console.log(name1)
+
+// string properties and methods:
+
+// length
+// console.log(name.length)
+
+// template literals: moderns js
+
+// let girl = "swechchha"
+// let boy = "amey"
+// let setnence = ${girl} is friend of ${boy}
+// console.log(setnence)
+// output : swechchha is friend of amey
+
+// string interpolattion: we can insert variables in template literalas.
+
+// escape sequence of character
+// 1.\n
+// 2.\r
+// 3. \t 
+//  moves the cursor down to the next line without returning to the beginning of the line
+
+
+// let fruit = "bana\nna"
+// console.log(fruit)
+// console.log(fruit.length)
+
+// let fruit = "bana\tna"
+// console.log(fruit)
+
+let fruit = "bana\rna"
+console.log(fruit)
+
+
+// Strings methods
+
+// 1. length
+// 2. uppercase
+// 3. lowercase
+// 4. slice
+// 5. replace
+// 6. concat
+// 7. trim
+
+// let name = "SwechChha"
+// console.log(name.toUpperCase())
+// console.log(name.toLowerCase())
+
+
+// let name = "Swechchha"
+// slice
+
+// console.log(name.slice(1,4)) // from 1 to 4, but 4 is not included
+// second variant of slice
+// console.log(name.slice(2))
+// let cars = ["bmz", "xyz", "abc", "safari", "internet", "nano"]
+// console.log(cars.slice(2))
+// console.log(cars.slice(2,4))
+
+// replace
+// console.log(name.replace("Swec", "Amey"))
+
+// concat
+// let fruit1 = "apple";
+// let fruite2 = "mango";
+// console.log(fruit1.concat(" "+fruite2, " grapes"))
+
+// trim -  remove whitespace around
+// let car = " BMW "
+// console.log(car.trim())
+
+// orginal string will be never changed instead of return new string
+
+
+
+destructure
+spread & rest operator
+call, apply, bind
+Closure
+Object Constructor
+
+
+
+// desturucte - it means unpack/separate values from an array or object
+
+const user = ["Swechchha", 3, "admin"]
+// old way not in use
+// let name = user[0]
+// let age = user[1]
+// let role = user[2]
+// console.log(name)
+// console.log(age)
+// console.log(role)
+
+// array
+// const [name, age, role] = user
+// console.log(name)
+// console.log(age)
+// console.log(role)
+
+// Object
+const myUser = {
+    name: "Amey",
+    age: 4,
+    role: "user"
+}
+
+let {name, age, role} = myUser
+console.log(name)
+
+
+
+// rest and spread
+// (...)
+// spread taking value in array and passing then to indivisual value
+
+// function oneSum(a,b,c,d){
+//     return a+b+c+d;
+// }
+
+// let arr1 = [1, 2, 3, 4]
+// // console.log(oneSum(2, 3,))
+// // console.log(oneSum(arr1)) // it will show e=unexpected behaviour
+
+// console.log(oneSum(...arr1)) // spread operator it takes group of values and tries to spread into the multiple values, it can be apply for array and object both
+
+// object
+// const myVehicle = {
+//     brand: "Ford",
+//     model: "abc",
+//     color: "red"
+// }
+
+// const myVehicle2 = {
+//     name: "safari",
+//     year: 2011,
+//     type: "suv"
+// }
+
+// const updateCar = {...myVehicle, ...myVehicle2}
+// console.log(updateCar)
+// if two objects having same key then it will update according to the last value of the object
+// if you want to pass more value the =n give by ,
+
+// we can concat two objects/ array
+
+// console.log({...myVehicle, ...myVehicle2)
+// we can pass extra key and value pairs if needed 
+// console.log({...myVehicle, ...myVehicle2, fname: "Swechchha"})
+
+// let arr1 = [2, 3, 4, 5]
+// let arr2 = [5, 6, 7, 8]
+// let arr3 = [...arr1, arr2]
+// console.log(arr3)
+// console.log(arr1.concat(arr2))
+
+
+// const myVehicle = {
+//     brand: "Ford",
+//     model: "abc",
+//     color: "red"
+// }
+
+// const myVehicle2 = {
+//     name: "safari",
+//     year: 2011,
+//     type: "suv"
+// }
+
+// // console.log({...myVehicle2, name: "Amey"})
+// console.log({name: "Amey", ...myVehicle2}) // this will print without changing the value
+
+
+
+// rest : used to collect multiplle elemets or properties convert into simgle array or object, in function to pass parameters or destructuring
+
+// let arr = [1,2,3,4,5,6]
+// // let [a,b,...rest] = arr
+// let [a, ,b,...rest] = arr
+// console.log(a,b,rest)
+
+// function twoSum(...args) {
+//     console.log(args)
+//     let sum = 0
+//     for(const arg of args){
+//         // sum = sum+arg
+//         sum += arg;
+//     }
+//     return sum;
+// }
+// console.log(twoSum(2,3,4,5))
+
+function threeSum(a,b, ...args) {. // rest operator
+    // console.log(args)
+    let multi = a*b
+    let sum = 0
+    for(const arg of args){
+        // sum = sum+arg
+        sum += arg;
+    }
+    return [sum, multi]
+}
+console.log(threeSum(2,3,4,5))
+
+// rest and spread main diference:
+
+// rest convert indivisual elements into an array
+// spraed take array value and pass then in function as a indivisual value
+
+based on the challenges or scenarios it's work either spread or rest
+
+
+// call apply
+
+// const userDeatils1 = {
+//     name: "swe",
+//     age: 16,
+//     designation: "software developer",
+//     printDetails: function(){
+//         console.log(this.name)
+//     }
+// }
+// userDeatils1.printDetails();
+
+// const userDeatils2 = {
+//     name: "Amey",
+//     age: 10,
+//     designation: "software engineer",
+// }
+// function borrowing
+// userDeatils1.printDetails.call(userDeatils2);
+
+
+// apply example
+
+const userDeatils1 = {
+    name: "swe",
+    age: 16,
+    designation: "software developer",
+}
+
+let printDetails = function(state, country){
+        console.log(this.name +" "+ state +" "+country)
+    }
+// printDetails.call(userDeatils1, "Delhi", "India");
+printDetails.apply(userDeatils1, ["Delhi", "India"]);
+
+const userDeatils2 = {
+    name: "Amey",
+    age: 10,
+    designation: "software engineer",
+}
+
+// printDetails.call(userDeatils2, "Delhi", "India");
+
+// call : value we have to pass indivisually
+
+printDetails.apply(userDeatils2, ["Delhi", "India"]);
+
+// apply : instead of passing indivisual value arguments one by one can pass array list in the apply this is main difference
+
+
+const userDeatils1 = {
+    name: "swe",
+    age: 16,
+    designation: "software developer",
+}
+
+let printDetails = function(state, country){
+        console.log(this.name +" "+ state +" "+country)
+    }
+// printDetails.call(userDeatils1, "Delhi", "India");
+// printDetails.apply(userDeatils1, ["Delhi", "India"]);
+
+const userDeatils2 = {
+    name: "Amey",
+    age: 10,
+    designation: "software engineer",
+}
+
+// printDetails.call(userDeatils2, "Delhi", "India");
+
+// call : value we have to pass indivisually
+// call will be invoked automatically by passing value
+
+// printDetails.apply(userDeatils2, ["Delhi", "India"]);
+
+// apply : instead of passing indivisual value arguments one by one can pass array list in the apply this is main difference
+
+
+// bind will store object reference and can invoked whenever needed
+// bind work same as call function
+
+let newFunc = printDetails.bind(userDeatils2, "Delhi", "India");
+newFunc();
+
+
+
+
+// Closure :
+// a Closure is a function that remembers and can access variable from its lexical environmenr even the function is execute outside that scope.
+
+// When a function is declared in JavaScript, the JavaScript engine creates a new lexical environment. 
+
+// let name = "Amrita"
+// function init(){
+//     let name = "Amey"
+//     {
+//         let name = "swechchha"
+//         console.log(name)
+//     }
+//     console.log(name)
+// }
+// console.log(name)
+// init()
+
+// function init(){
+//     // let name = "Amey"
+//     function displayName(){
+//         console.log(name)
+//     }
+//     return displayName;
+//     console.log(name)
+// }
+
+// let c = init()
+// c();
+
+
+// clouser
+let a = 500
+function returnFunction (){
+    const x = () =>{
+        // let a =1
+        console.log(a)
+        const y = () =>{
+            // let a =2
+        console.log(a)
+        const z =() =>{
+            // let a =3
+        console.log(a)
+        }
+        z();
+     }
+    //  a = 999;
+     y();
+    }
+    return x
+}
+
+let d = returnFunction()
+d()
