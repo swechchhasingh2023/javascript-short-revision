@@ -1,0 +1,104 @@
+Synchronous & Synchronous programming
+Callback. Callback hell
+ 
+// Syncrnous Programming
+// line by line exection
+// console.log(5);
+// let a=6;
+// let b=9;
+// console.log(b);
+// console.log(a);
+ 
+// Asynchronous Programming
+// big part of programmming/ incase function will take more time to execute it will run on background then give output..
+// Js synchronous language but we will convert it into asynchronous by using following ways:-
+// 1. Callback
+// 2. Promise
+ 
+ 
+// 1. Callback
+// callback takes another function as a arguments
+ 
+// setTimeout function
+// setTimeout(()=>{
+//     console.log(5);
+// },3000);
+ 
+// syntax
+// function abc(callback){
+//     callback(person);
+// }
+// abc(()=>{
+//     // print person object
+// })
+// abc( callback(person))
+ 
+// function myFunc(callback){ // parent function
+//     setTimeout(()=>{
+//         let person={name:"Amey"};
+//         callback(person); //child function call here
+//     },3000);
+// }
+// myFunc((person)=>{ //we call child function inside main function
+//     console.log(person);
+// });
+ 
+// normal function
+// function myName(a){
+//     console.log("my name is amey");
+// }
+// myName();
+ 
+
+
+// Example shopping site:-
+// 1. Purchase
+// 2. payment
+// 3. order summary
+// 4. delivery date
+// 5. edit oerder
+// 6 Gift code
+ 
+// Disadvance callback - 
+// 1. callback hell - we take too many function and inside function and pass another function as a arguments in parent function 
+- useful but it will convert program into complex - structure is like pyramid so it is also called as Pyramid of doom
+// 2. Inversion of Control - Developer allow to use full access main function
+ 
+Callback Hell
+
+// function purchaseItem(){
+//     // code
+//     function paymentOption(){
+//         // code
+//         function orderSummary(){
+//             // code
+//             function deliveryDate(){
+//                 // 
+//                 deliveryDate(editOrder(){
+//                     // 
+//                 })
+//                 editOrder(){
+//                     // call
+//                 }
+//             }
+//         }
+//     }
+// }
+ 
+// 2. Promise
+// Promises are objects representing the eventual completion (or failure) of an asynchronous operation, providing better handling of asynchronous code with .then() and .catch().
+function mydata() { 
+    return new Promise((resolve, reject) => { 
+        setTimeout(() => { 
+            const data = { name: "Rohit", age: 23 }; 
+            resolve(data);
+        }, 2000); 
+    }); 
+} 
+mydata() 
+    .then((data) => { 
+        console.log(data); 
+    }) 
+    .catch((error) => { 
+        console.error(error); 
+    });
