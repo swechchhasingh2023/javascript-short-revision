@@ -1,0 +1,79 @@
+Promise
+Error Handling -
+Custom error
+try catch finally block
+ 
+Promise
+// Promises are objects representing the eventual completion (or failure) of an asynchronous operation, providing better handling of asynchronous code with .then() and .catch().
+// function and it takes 2 parameter (resolve, reject)
+// syntax =>  return new Promise(function(resolve, reject){…..}
+// then() => Promise will resolve by using this block
+// catch()=> Promise will reject by using this block
+// pending state means your promise is in queue or promise is in progress
+ 
+// console.log("promise");
+ 
+function func1(){
+    return new Promise(function(resolve, reject){
+        setTimeout(()=>{
+            const error=false;
+            if(!error){
+                console.log("Your Promise is fullfilled");
+                resolve()
+            }
+            else{
+                console.log("Sorry Your Promise is not fullfilled");
+                reject("Something is wrong");
+            }
+        }, 2000);
+    });
+}
+func1().then(function(){
+    console.log("Your promise is completed");
+}).catch(function(error){
+    console.log(error);
+    console.log("Your promise is rejected");
+});
+ 
+ 
+// console.log("try Catch");
+ 
+// - errors backend(server) - for handling the errors and for maintaining the code error free we use the try catch block
+ 
+// custom erros
+- sometimes we want display different which help users to understand what we need here
+// let str = "amey";
+// console.log("Hello")
+// let str;
+// if(str==undefined){
+//     throw new Error("This is not undefined");
+// }else{
+//     console.log("Not error")
+// }
+ 
+ 
+// try catch finally block -
+// - We put all codes in try block, incase any error is come then JS engine will run the catch block
+ 
+// functionFunc1();
+try{
+    function functionFunc1(){
+        console.log("inside Func1");
+    }
+    console.log("We are inside try block");
+    functionFunc1();
+    console.log("Hello JS");
+}
+catch(error){
+    console.log("Something is wrong");
+    console.log(error);
+    alert(error.message);
+}
+// finally - if any error will occurs or not this block always run
+// we will avoid finally block because it will ignore the errors also..
+finally{
+    console.log("Finally :  This is finally block");
+    console.log("Finally : We are inside try block");
+    functionFunc1();
+    console.log(" Finally :  Hello JS");
+}
