@@ -1,0 +1,406 @@
+A:-
+Set
+Map
+Set vs Map
+Session and Local Storage
+Callback hell
+ 
+B:-
+DOM
+Regular Expression (Regex)
+Pass by Value & Pass by Reference
+Map, reduce, filter
+Diff between forEach & map
+
+
+Set
+A JavaScript Set is a collection of unique values.
+Each value can only occur once in a Set.
+Gives object as a result
+// const letters = [1,2,3,4,5,6,4,3,2,1,3,2,4,9,7,8,0];
+// console.log(letters.length)
+// console.log(new Set(letters))
+ 
+const num = new Set();
+num.add(1)
+num.add("a")
+console.log(num)
+ 
+ 
+Map
+Maps are used to store data in key-value pairs where keys are used to uniquely identify an element and values contain the data associated with it.
+let sample = new Map();
+const person = [["name", "Amey"], ["role","SA"]];
+console.log(new Map(person));
+ 
+Map
+	
+Set
+
+
+It is a collection of key-value
+	
+It is a collection of unique elements
+
+
+Map is two-dimensional
+	
+The set is one dimensional
+
+
+Values are accessed using keys
+	
+In-built methods are used to access  values
+ 
+ 
+Session and Local Storage
+With web storage, web applications can store data locally within the user's browser.
+Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.
+ 
+window.localStorage - stores data with no expiration date
+window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
+ 
+<script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+  // Store
+  localStorage.setItem("lastname", "Smith");
+  // Retrieve
+  document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+} else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+</script>
+ 
+ 
+Callback hell
+Callback hell refers to the situation in JavaScript where multiple nested callbacks create complex, deeply indented code, often called the “pyramid of doom.” This structure makes the code difficult to read, debug, and maintain, resulting in poor code quality and scalability issues.
+ 
+const animateAll = (animate) => {
+        setTimeout(() => {
+            animate(words[0]);
+            setTimeout(() => {
+                animate(words[1]);
+                setTimeout(() => {
+                    animate(words[2]);
+                }, 1000)
+            }, 1000)
+        }, 1000)
+    }
+
+
+
+DOM - Document Object Model 
+The DOM is a W3C (World Wide Web Consortium) standard.
+The DOM defines a standard for accessing documents:
+
+
+* Core DOM - standard model for all document types
+* XML DOM - standard model for XML documents
+* HTML DOM - standard model for HTML documents
+
+document.getElementById('title')
+<h1 id="title" class="heading">Dom Learning with swechchha Singh</h1>
+
+document.getElementById('title').id
+'title'
+
+document.getElementById('title').className
+'heading'
+
+document.getElementById('title').getAttribute('id')
+'title'
+
+document.getElementById('title').getAttribute('class')
+'heading'
+
+
+document.getElementById('title').setAttribute('class', 'test') // always override
+
+document.getElementById('title').setAttribute('class', 'test heading')
+
+
+const title = document.getElementById('title')
+undefined
+title
+<h1 id=​"title" class=​"heading">​Dom Learning with swechchha Singh​</h1>​
+title.style.backgroundColor = 'green'
+
+title.style.padding = '15px'
+'15px'
+
+
+'Dom Learning with swechchha Singh'
+title.innerText
+
+'Dom Learning with swechchha Singh'
+
+title.textContent
+'Dom Learning with swechchha Singh It is a long established fact that a reader will be distracted ' // it will show hidden text
+
+title.innerHTML
+'Dom Learning with swechchha Singh <span style="display: none;">It is a long established fact that a reader will be distracted </span>'
+
+document.querySelector('h1') // it will give first h1
+
+querySelector- always select first item
+
+document.querySelector('#title')
+<h1 id=​"title" class=​"heading">​…​</h1>​
+document.querySelector('.heading')
+<h1 id=​"title" class=​"heading">​…​</h1>​
+ 
+document.querySelector('input[type="password"]')
+<input type=​"password" placeholder>​
+
+Basic end**
+
+document.querySelector('ul')
+<ul>​…​</ul>​
+const myUl = document.querySelector('ul')
+myUl.querySelector('li')
+<li>​…​</li>​::marker​"One"</li>​
+const turnGreen = myUl.querySelector('li')
+turnGreen.style.backgroundColor = "green"
+'green'
+
+turnGreen.style.padding = "15px"
+'15px'
+turnGreen.innerText
+'One'
+turnGreen.innerText = "five"
+'five'
+
+querySelectorAll: its select all the item, it will give nodelist
+
+
+document.querySelectorAll('li')
+NodeList(4) [li, li, li, li]0: li1: li2: li3: lilength: 4[[Prototype]]: NodeList
+const tempList = document.querySelectorAll('li')
+tempList
+tempList.style.color = "green" // not allowed bcz it is not working same as array 
+
+tempList[0].style.color = "green"
+'green'
+
+If you doing querySelectorAll - you need give indexing
+
+
+tempList.forEach((l)=>{
+    l.style.backgroundColor = "green"
+})
+
+document.getElementsByClassName('list-item')
+HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]. // return html colllection
+
+const tempClassList = document.getElementsByClassName('list-item')
+tempClassList
+Array.from(tempClassList)
+const myConvertedArray = Array.from(tempClassList)
+myConvertedArray
+myConvertedArray.forEach(function(li){
+    li.style.color = "orange"
+})
+
+
+
+document.querySelectorAll('h2')
+NodeList(16) [h2.vector-pinnable-header-label, h2.cdx-dialog__header__title, h2#History, h2#Trademark, h2#Website_client-side_usage, h2#Other_usage, h2#Execution, h2#Features, h2#Syntax, h2#Security, h2#Development_tools, h2#Related_technologies, h2#References, h2#Sources, h2#Further_reading, h2#External_links]
+const allH2 = document.querySelectorAll('h2')
+undefined
+allH2[0].innerText
+'Contents'
+
+const myH2 = document.querySelectorAll('.mw-heading')
+myH2[0].innerText
+myH2.forEach((h)=>{
+    h.style.color = "red"
+})
+
+When using querySelectorAll give result in node
+
+regex: a word replace though out string
+const regex = /very/g
+const text = "Swechchha is very very good very girl"
+// console.log(text.replace("very", "VERY"))
+console.log(text.replace(regex, "VERY"))
+
+https://regexr.com/
+
+.erry - . Mattes word
+Swechchha is very very good very girl herry gerry
+erry
+
+
+\derry -matched digits before 
+
+\d[a-e]rry - range matching from a to e
+
+Swechchha is very very good very girl herry gerry
+erry 7erry 8drry
+
+\d[^a-e]rry -  negated set
+Swechchha is very very good very girl herry gerry
+erry 7erry 8drry 0irry
+
+\d[^abcd]rry
+Swechchha is very very good very girl herry gerry
+erry 7erry 8drry 0irry 8erry
+
+^abc - abc matching
+abcSwechchha is very very good very girl herry gerry
+abcerry 7erry 8drry 0irry 8erry
+
+^abc\. - . matching
+abc.Swechchha is very very good very girl herry gerry
+abcerry 7erry 8drry 0irry 8erry.
+
+(abc)- capturing group
+
+abc.Swechchha is very very good very girl herry gerry
+abcerry 7erry 8drry 0irry 8erry. abc abcabc
+
+(Swechchha){2} - exactly two times occurrence
+
+SwechchhaSwechchha
+
+const regex = /(Swechchha){2}/gi
+const text = "Swechchhaswechchha is very very good very girl"
+// console.log(text.replace("very", "VERY"))
+console.log(text.replace(regex, "VERY"))
+
+(Swechchha){2,4}
+abc abcabc SwechchhaSwechchha SwechchhaSwechchhaSwechchhaswechchha
+
+
+Pass by value & pass by reference
+
+Pass by value - it work with primitive data type
+pass by reference - it work with non-primitive
+
+Data types that are known as primitive data types in js : Numbers, strings, booleans, null, undefined. Object, such as functions and arrays are referred to as non-primitive values
+Premitive - immutable
+Non-premitive -mutable
+
+// pass by value : now both a,b will work independent
+let a = 5;
+let b = a;
+b = a+5
+console.log(a)
+console.log(b)
+
+
+// pass by reference
+let obj1 = {
+    name: "swe",
+    pass: "ser@1"
+}
+
+let obj2 = obj1
+console.log(obj1)
+console.log(obj2)
+
+
+// pass by reference
+let obj1 = {
+    name: "swe",
+    pass: "ser@1"
+}
+
+let obj2 = obj1
+obj2.pass = "hitlike"
+console.log(obj1)
+console.log(obj2)
+
+// pass by reference: they passed reference original data will be changed 
+Object: 
+let obj1 = {
+    name: "swe",
+    pass: "ser@1"
+}
+
+let obj2 = obj1
+obj2.pass = "hitlike"
+console.log(obj1)
+console.log(obj2)
+
+Array:
+let arr1 = [1, 2, 3]
+let arr2 = arr1
+arr2.push(4)
+console.log(arr1)
+console.log(arr2)
+
+In pass by value both the variable will work independently but in pass by reference original data will be changed
+
+
+map, reduce, filter : higher order methods
+
+Map: 
+
+// map : cretaes new array by performing some operation on each array elements. Original array will be same did not change.
+
+// const a = [1, 2, 3]
+// a.map((value, index, arr)=>{
+//     return value*value
+// })
+
+let arr = [34, 45, 67]
+// console.log(arr)
+let a = arr.map((value)=>{
+    console.log(value)
+    return value +1
+})
+console.log(a)
+
+value, index, array
+let arr = [34, 45, 67]
+// console.log(arr)
+let a = arr.map((value, index, array)=>{
+    console.log(value, index, array)
+    return value +1
+})
+console.log(a)
+
+Reduce: Reduces an array to a single value.
+
+
+// let arr3 = [1, 2, 3, 5, 2, 1]
+
+// let newarr3 = arr3.reduce((h1, h2)=>{
+//     return h1+h2
+// })
+// console.log(newarr3)
+// 1+2 = 3
+// 3+3 =6
+// 5+6 = 11
+// 11+2 = 13
+// 13+1 = 14
+
+// another way
+
+let arr3 = [1, 2, 3, 5, 2, 1]
+
+const reduc_func = (h1, h2)=>{
+    return h1+h2
+}
+
+let newarr3 = arr3.reduce(reduc_func)
+console.log(newarr3)
+
+Filter: Filters an array with values that passes a test/consitipn and create new array. Original array will be same did not change.
+
+// array filter method
+
+let arr2 =  [45, 23, 21, 0, 3, 5]
+let a2 =arr2.filter((a)=>{
+    return a<10
+})
+console.log(a2)
+
+Difference between map and for each :
+1. Map is used when we needs to Create new array
+2. Foreach is used when we need to perform some operations of existing array’s elements.
+3. For each did not return value
+
+Higher order function - under a function we can pass another function 
